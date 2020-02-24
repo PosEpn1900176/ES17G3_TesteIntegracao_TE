@@ -1,8 +1,12 @@
-# Testing Integration (Example with Java or Ruby)
+# Teste de Integração 
 
-Simple project of API to run tests with RSpec/Ruby or JUnit/Cucumber/Java
+Testes utilizando o cucumber para gerar features de teste
 
-## Pre Condition
+## Integrantes
+- 1900176 - Eduardo Porfirio Nunes
+- 1900577 - Tatiane Moura
+
+## Requisitos de Instalação
 
 - You must have already installed:
 -- RVM installed
