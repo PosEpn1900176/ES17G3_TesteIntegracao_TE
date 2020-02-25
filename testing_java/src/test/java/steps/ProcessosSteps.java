@@ -3,7 +3,7 @@ package steps;
 import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
-import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import definition.Processo;
 import org.junit.Assert;
@@ -29,15 +29,15 @@ public class ProcessosSteps {
         Processo.AtualizarUltimoCodigo(RESTSupport.key("id").toString());
     }
 
-    @Então("^a mensagem \"([^\"]*)\" deveria ser exibida$")
+    @Entao("^a mensagem \"([^\"]*)\" deveria ser exibida$")
     public void aMensagemDeveriaSerExibida(String msg) throws Throwable {
         LazyMap msgJson = new LazyMap();
 
         msgJson.put("Registro gravado com sucesso.", 201);
         msgJson.put("Sucesso.", 200);
         msgJson.put("Sem informação.", 204);
-        msgJson.put("Não encontrado.", 401);
-        msgJson.put("Não autorizado.", 404);
+        msgJson.put("Não autorizado.", 401);
+        msgJson.put("Não encontrado.", 404);
 
         Assert.assertEquals(msgJson.get(msg), RESTSupport.getResponseCode());
     }
@@ -45,11 +45,6 @@ public class ProcessosSteps {
     @E("^o valor \"([^\"]*)\" deve ser exibido no campo \"([^\"]*)\" para o usuario$")
     public void oValorDeveSerExibidoNoCampoParaOUsuario(String valor, String campo) throws Throwable {
         Assert.assertEquals(valor, RESTSupport.key(campo));
-    }
-
-    @E("^o usuario quer ver o processo numero (\\d+)$")
-    public void oUsuarioQuerVerOProcessoNumeroId(String id) {
-        Processo.AtualizarUltimoCodigo(id);
     }
 
     @E("^o usuario quer ver o processo numero \"([^\"]*)\"$")
